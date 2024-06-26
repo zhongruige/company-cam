@@ -13,8 +13,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         env:
-          username: ${{ secrets.username }}
-          password: ${{ secrets.password }}
-          address: ${{ secrets.address }}
-          locationName: ${{ secrets.locationname }}
-          formattedAddress: ${{ secrets.formattedAddress }}
+          CYPRESS_username: ${{ secrets.USERNAME }}
+          CYPRESS_password: ${{ secrets.PASSWORD }}
+          CYPRESS_address: ${{ secrets.ADDRESS }}
+          CYPRESS_locationName: ${{ secrets.LOCATIONNAME }}
+          CYPRESS_formattedAddress: ${{ secrets.FORMATTEDADDRESS }}
