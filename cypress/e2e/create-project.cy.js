@@ -53,7 +53,7 @@ describe('Create a project and upload photos', () => {
       cy.get('h1[data-testid=projects__title-heading').should('contain', locationName)
       cy.get('span[data-testid=project__address').should('contain', formattedAddress)
 
-      // Find the button to upload photod.
+      // Find the button to upload photos.
       cy.get('button[data-testid=photos__add-new-photo]').click()
 
       // Upload our two project photos using Cypress's drag and drop.

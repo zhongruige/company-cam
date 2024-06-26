@@ -7,11 +7,15 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 // Login helper function for use in other tests that require authentication.
-Cypress.Commands.add('login', (username, password) => {
+// This can be updated to support logins from different users, since a project manager and invite others.
+Cypress.Commands.add('login', () => {
+    const username = Cypress.env('username')
+    const password = Cypress.env('password')
+
     cy.visit('/signin')
 
-    cy.get('input#user_email_address').type('zhongruige+test@gmail.com')
-    cy.get('input#user_password').type(`${'risdy6-capjyr-quJhib'}{enter}`)
+    cy.get('input#user_email_address').type(username)
+    cy.get('input#user_password').type(`${password}{enter}`)
 
     // Verify we're on the projects page
     cy.url().should('include', '/projects')
