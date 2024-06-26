@@ -53,18 +53,18 @@ describe('Create a project and upload photos', () => {
       cy.get('h1[data-testid=projects__title-heading').should('contain', locationName)
       cy.get('span[data-testid=project__address').should('contain', formattedAddress)
 
+      // Find the button to upload photod.
       cy.get('button[data-testid=photos__add-new-photo]').click()
 
-      // Upload our two project photos
+      // Upload our two project photos using Cypress's drag and drop.
       cy.get('div[name=photo-drop-zone]').selectFile('cypress/data/p1.jpeg', {
         action: 'drag-drop'
       })
-
       cy.get('div[name=photo-drop-zone]').selectFile('cypress/data/p2.jpeg', {
         action: 'drag-drop'
       })
 
-      // Close the upload modal
+      // Close the upload modal once the photos are added.
       cy.get('a[data-testid=photos__upload-modal-close-button').click()
 
       // Verify the photos were uploaded, the count should be 2 as we uploaded 2 pictures
