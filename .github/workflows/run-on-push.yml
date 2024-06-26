@@ -16,3 +16,4 @@ jobs:
           CYPRESS_address: ${{ secrets.ADDRESS }}
           CYPRESS_locationName: ${{ secrets.LOCATIONNAME }}
           CYPRESS_formattedAddress: ${{ secrets.FORMATTEDADDRESS }}
+          CYPRESS_companyName: ${{ secrets.COMPANYNAME }}

@@ -27,6 +27,7 @@ describe('Basic flows', () => {
       // Get our username and password from the environment.
       const username = Cypress.env('username')
       const password = Cypress.env('password')
+      const companyName = Cypress.env('companyName')
       
       // Navigate to the sign in page and login.
       cy.visit('/signin')
@@ -38,7 +39,7 @@ describe('Basic flows', () => {
       cy.url().should('include', '/projects')
 
       // Make sure the company name shows, verifying we logged in as the correct user.
-      cy.get('h6[data-testid=navigation__index__company-name').should('contain', 'QA Testing')
+      cy.get('h6[data-testid=navigation__index__company-name').should('contain', companyName)
     })
 
   })

@@ -11,6 +11,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 Cypress.Commands.add('login', () => {
     const username = Cypress.env('username')
     const password = Cypress.env('password')
+    const companyName = Cypress.env('companyName')
 
     cy.visit('/signin')
 
@@ -20,12 +21,12 @@ Cypress.Commands.add('login', () => {
     // Verify we're on the projects page
     cy.url().should('include', '/projects')
 
-    // Make sure the company name shows, verifying we logged in as the corerct user.
-    cy.get('h6[data-testid=navigation__index__company-name').should('contain', 'QA Testing')
+    // Make sure the company name shows, verifying we logged in as the correct user.
+    cy.get('h6[data-testid=navigation__index__company-name').should('contain', companyName)
 })
 
 // Ideally, we would use this method to capture the session cookie so we can login once, caching the browser context.
-// Cypress.Commands.add('login', (username, password) => {
+// Cypress.Commands.add('login', (username, password, companyName) => {
 //     cy.session(
 //       username,
 //       () => {
@@ -37,7 +38,7 @@ Cypress.Commands.add('login', () => {
 //         cy.url().should('include', '/projects')
 
 //         cy.getCookie('session-cookie').should('exist') // TODO: Add in the session cookie here.
-//         cy.get('h6[data-testid=navigation__index__company-name').should('contain', 'QA Testing')
+//         cy.get('h6[data-testid=navigation__index__company-name').should('contain', companyName)
 //       },
 //       {
 //         validate: () => {
