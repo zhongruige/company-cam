@@ -15,3 +15,6 @@ jobs:
         env:
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
+          address: ${{ secrets.address }}
+          locationName: ${{ secrets.locationname }}
+          formattedAddress: ${{ secrets.formattedAddress }}
