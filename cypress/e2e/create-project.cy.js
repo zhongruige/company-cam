@@ -31,7 +31,7 @@ describe('Create a project and upload photos', () => {
       // Click on the first result (it's the one we want) to select it
       cy.get('.pac-item').first().click()
 
-      // Ideally, we'll have data attributes to better target this button, as we do in othe rplaces.
+      // Ideally, we'll have data attributes to better target this button, as we do in other places.
       cy.get('div.btn-container > button[type=submit]').click()
 
       // Verify the project was created with the correct name and address.

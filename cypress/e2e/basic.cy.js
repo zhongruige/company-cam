@@ -34,7 +34,7 @@ describe('Basic flows', () => {
       cy.get('input#user_email_address').type(username)
       cy.get('input#user_password').type(`${password}{enter}`)
 
-      // Verify we're on the projects page ,where we land after logging in.
+      // Verify we're on the projects page, where we land after logging in.
       cy.url().should('include', '/projects')
 
       // Make sure the company name shows, verifying we logged in as the correct user.
